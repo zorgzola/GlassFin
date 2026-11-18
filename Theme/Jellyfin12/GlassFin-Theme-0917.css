@@ -1,0 +1,278 @@
+/*----------- Jellyfin V12 Fix -----------START */
+/* Remove spacing underneath new bar (Every Pages Affected) */
+main.MuiBox-root.css-1iogify {
+    margin-top: -100px !important;
+}
+/* Re-add spacing back in: Searches */
+div#searchPage {
+        margin-top: 100px;
+}
+/* Re-add spacing back in: Movies, Series, Cast pages */
+div#itemBackdrop {
+    margin-top: 100px;
+}
+/* Re-add spacing back in: Comics, HomeVideos when using Folder view, when entering a folder (Level 1) */
+.padded-left.padded-right.padded-bottom-page.padded-right-withalphapicker {
+    margin-top: 100px;
+}
+
+/* Remove default banner styling */
+.MuiAppBar-root {
+    background: none !important;
+    backdrop-filter: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+}
+/* top left menu options */
+.css-x5lcu9 {
+    border: 1px solid rgb(255 255 255 / 30%);
+    border-radius: 18px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: rgb(168 168 168 / 17%);
+    backdrop-filter: blur(20px);
+    box-shadow: 0px 6px 24px rgb(0 0 0 / 10%);
+}
+/* Fix top menu bar placement */
+.MuiToolbar-root.MuiToolbar-gutters.MuiToolbar-dense.padded-left.padded-right {
+    padding-right: 10px !important;
+    padding-top: 10px !important;
+}
+
+a.MuiButtonBase-root.css-1f20jcn:hover {
+    transform: scale(1.1) !important;
+    transform-origin: center !important;
+    transition:
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+    border: 1.5px solid #90909085;
+    border-radius: 15px;
+    backdrop-filter: blur(20px);
+}
+
+.css-1riowxi {
+    margin-left: auto;
+    display: flex;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    -webkit-box-pack: end;
+    justify-content: flex-start;
+    border: 1px solid rgb(255 255 255 / 30%);
+    border-radius: 18px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: rgb(168 168 168 / 17%);
+    backdrop-filter: blur(20px);
+    box-shadow: 0px 6px 24px rgb(0 0 0 / 10%);
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    align-content: stretch;
+    max-width: fit-content;
+}
+
+/* Fix layout of track selection and detail section - Desktop only */
+@media (min-width: 1025px) {
+    .detailSection {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 20px !important;
+        align-items: start !important;
+    }
+
+    .detailSectionContent {
+        grid-column: 1 / 3 !important;
+        grid-row: 1 !important;
+        width: auto !important;
+        order: 1 !important;
+    }
+
+    .detailSection .trackSelections.focuscontainer-x {
+        grid-column: 1 !important;
+        grid-row: 2 !important;
+        width: auto !important;
+        order: 2 !important;
+    }
+
+    .detailSection .itemDetailsGroup {
+        grid-column: 2 !important;
+        grid-row: 2 !important;
+        width: auto !important;
+        order: 3 !important;
+    }
+}
+/* Fix Phone layout - home/launch screen */
+.homePage.libraryPage.withTabs, .libraryPage:not(.itemDetailPage) {
+    padding-top: 8em !important;
+}
+
+/* Shows > Suggestions - vertical grid scrolling */
+/* Suggestions only - exclude Cast & Crew and Home sections */
+.emby-scroller.scrollX.hiddenScrollX:not(#castCollapsible *):not(.homeSectionsContainer *) {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    height: auto !important;
+    max-height: 600px !important;
+    padding-bottom: 20px !important;
+}
+
+.emby-scroller.scrollX.hiddenScrollX:not(#castCollapsible *):not(.homeSectionsContainer *) .itemsContainer {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)) !important;
+    gap: 10px !important;
+    flex-wrap: wrap !important;
+    width: 100% !important;
+    transform: none !important;
+}
+
+.emby-scroller.scrollX.hiddenScrollX:not(#castCollapsible *):not(.homeSectionsContainer *) .itemsContainer > * {
+    position: relative !important;
+    margin: 0 !important;
+    width: auto !important;
+}
+.sectionTitleTextButton:not(.padded-left) {
+    margin-bottom: 5px !important;
+}
+
+/* fix top left menu display - removes the server name text (leaves logo) */
+a.MuiButtonBase-root[href="#/"] {
+    color: transparent !important;
+}
+
+a.MuiButtonBase-root[href="#/"] .MuiButton-icon {
+    color: inherit !important;
+}
+
+a.MuiButtonBase-root[href="#/"] img {
+    opacity: 1 !important;
+}
+.css-iqm7ky {
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+/* 1. Target the button and hide all direct text content */
+.css-iqm7ky {
+    font-size: 0 !important;
+    /* Optional: If it's a grid, force it to one column */
+    grid-template-columns: auto !important; 
+    display: inline-flex !important;
+}
+
+/* Fix top right menu */
+#randomItemButtonContainer {
+height: 30px !important;
+}
+/* Fix top right menu - profile photo placement */
+.css-2uchni {
+padding-left: 15px;
+padding-right: 0.5em;
+}
+/* Fix top right menu - icon hover behaviour */
+.MuiButtonBase-root.MuiIconButton-root:hover {
+    transform: scale(1.1) !important;
+    transform-origin: center !important;
+    transition:
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+    border: 1.5px solid #90909085;
+    border-radius: 15px;
+    backdrop-filter: blur(20px);
+}
+/* Fix top right menu - Jellyfin Enhanced plugin - random button hover behaviour*/
+ @media (hover: hover) and (pointer: fine) {
+    .paper-icon-button-light:hover:not(:disabled) {
+    transform: scale(1.1) !important;
+    transform-origin: center !important;
+    transition:
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+    border: 1.5px solid #90909085;
+    border-radius: 15px;
+    backdrop-filter: blur(20px);
+    background-color: unset !important;
+    color: #dca600 !important;
+   }
+}
+/* Fix MOBILE - movie top level details */
+@media (max-width: 768px) {
+    .itemMiscInfo.itemMiscInfo-primary {
+        margin-bottom: 0.6em !important;
+        margin-top: 4em !important;
+    }
+}
+/* Fix MOBILE - movie desktop expansion */
+@media (max-width: 768px) {
+    p.overview {
+        color: white !important;
+        font-weight: 600 !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        text-align: center !important;
+    }
+}
+/* Fix MOBILE - detail box */
+@media (max-width: 768px) {
+    .itemDetailsGroup {
+        margin-right: 0 !important;
+    }
+}
+@media (max-width: 768px) {
+    .focuscontainer-x.MuiBox-root {
+        text-align: right !important;
+    }
+}
+/* Fix MOBILE - alpha character selector */
+/* Alpha Picker - vertically centered on right */
+.alphaPicker-fixed-right.MuiBox-root.css-11cf6b {
+    top: 50% !important;
+    bottom: auto !important;
+    transform: translateY(-50%) !important;
+
+    height: auto !important;
+    max-height: 90vh !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: fit-content !important;
+    padding: 4px !important;
+    border-radius: 20px !important;
+    box-sizing: border-box !important;
+}
+
+/* Ensure inner content sizes to its contents */
+.alphaPicker-fixed-right.MuiBox-root.css-11cf6b > * {
+    height: auto !important;
+    width: auto !important;
+}
+.css-12vt1e4 {
+background-color: unset !important;
+}
+.MuiToggleButtonGroup-grouped.Mui-selected {
+    color: white;
+    font-weight: bolder;
+    scale: 1.6;
+    background-color: unset !important;
+}
+.MuiToggleButtonGroup-root.MuiToggleButtonGroup-vertical {
+    gap: .2em !important;
+}
+.alphaPicker-fixed-right.MuiBox-root.css-11cf6b {
+top: 60% !important;
+}
+/* Fix MOBILE - side panel paper */
+.MuiDrawer-paper {
+    background-color: #9e9e9e36 !important;
+    border-top-right-radius: 20px !important;
+    border-bottom-right-radius: 20px !important;
+}
+/* Fix MOBILE - side panel paper - server name */
+.css-1y7q0ly {
+    display: none !important;
+}
+.Mui-selected {
+    background-color: rgb(167 167 167 / 28%) !important;
+}
+/*----------- Jellyfin V12 Fix ----------- END*/
